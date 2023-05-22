@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Editor de Foto</title>
+  <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.min.css">
+</head>
+
+<body>
+  <div class="rounded-container">
+    <p id="text_input_title1">NOME DO PERFIL</p>
+    <p id="char-count1">0/20</p>
+    <input type="text" id="input-text1" maxlength="20" oninput="updateCharCount()" onkeyup="updatePreview1()" required/>
+
+    <p id="fild_title1">FOTO DO PERFIL</p>
+    <input id="upload1" type="file" accept="image/*" required>
+    <p class="line-item-property__field">
+    <input type="file" id="croppedImageInput1" name="properties[Foto do perfil]" form="product-form-{{ section.id }}">
+    <input type="text" id="replicated-text1" name="properties[Nome do perfil]" form="product-form-{{ section.id }}"/>
+    </p>
+    <div class="above_upload1"> 
+    <img id="previewResult1" src="">
+    <div class="btns_above_upload1">
+        <button class="open__popup1">
+        <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 494.936 494.936" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M389.844,182.85c-6.743,0-12.21,5.467-12.21,12.21v222.968c0,23.562-19.174,42.735-42.736,42.735H67.157 c-23.562,0-42.736-19.174-42.736-42.735V150.285c0-23.562,19.174-42.735,42.736-42.735h267.741c6.743,0,12.21-5.467,12.21-12.21 s-5.467-12.21-12.21-12.21H67.157C30.126,83.13,0,113.255,0,150.285v267.743c0,37.029,30.126,67.155,67.157,67.155h267.741 c37.03,0,67.156-30.126,67.156-67.155V195.061C402.054,188.318,396.587,182.85,389.844,182.85z"></path> <path d="M483.876,20.791c-14.72-14.72-38.669-14.714-53.377,0L221.352,229.944c-0.28,0.28-3.434,3.559-4.251,5.396l-28.963,65.069 c-2.057,4.619-1.056,10.027,2.521,13.6c2.337,2.336,5.461,3.576,8.639,3.576c1.675,0,3.362-0.346,4.96-1.057l65.07-28.963 c1.83-0.815,5.114-3.97,5.396-4.25L483.876,74.169c7.131-7.131,11.06-16.61,11.06-26.692 C494.936,37.396,491.007,27.915,483.876,20.791z M466.61,56.897L257.457,266.05c-0.035,0.036-0.055,0.078-0.089,0.107 l-33.989,15.131L238.51,247.3c0.03-0.036,0.071-0.055,0.107-0.09L447.765,38.058c5.038-5.039,13.819-5.033,18.846,0.005 c2.518,2.51,3.905,5.855,3.905,9.414C470.516,51.036,469.127,54.38,466.61,56.897z"></path> </g> </g> </g></svg>
+        Editar
+        </button>
+        <button class="remove_file1">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+        Excluir
+        </button>
+    </div>
+    </div>
+  </div>
+
+  <div class="rounded-container">
+    <p id="fild_title2">FOTO FILME PRINCIPAL</p>
+    <input id="upload2" type="file" accept="image/*" required>
+    <div class="above_upload2"> 
+      <img id="previewResult2" src="">
+      <div class="btns_above_upload2">
+        <button class="open__popup2">
+          <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 494.936 494.936" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M389.844,182.85c-6.743,0-12.21,5.467-12.21,12.21v222.968c0,23.562-19.174,42.735-42.736,42.735H67.157 c-23.562,0-42.736-19.174-42.736-42.735V150.285c0-23.562,19.174-42.735,42.736-42.735h267.741c6.743,0,12.21-5.467,12.21-12.21 s-5.467-12.21-12.21-12.21H67.157C30.126,83.13,0,113.255,0,150.285v267.743c0,37.029,30.126,67.155,67.157,67.155h267.741 c37.03,0,67.156-30.126,67.156-67.155V195.061C402.054,188.318,396.587,182.85,389.844,182.85z"></path> <path d="M483.876,20.791c-14.72-14.72-38.669-14.714-53.377,0L221.352,229.944c-0.28,0.28-3.434,3.559-4.251,5.396l-28.963,65.069 c-2.057,4.619-1.056,10.027,2.521,13.6c2.337,2.336,5.461,3.576,8.639,3.576c1.675,0,3.362-0.346,4.96-1.057l65.07-28.963 c1.83-0.815,5.114-3.97,5.396-4.25L483.876,74.169c7.131-7.131,11.06-16.61,11.06-26.692 C494.936,37.396,491.007,27.915,483.876,20.791z M466.61,56.897L257.457,266.05c-0.035,0.036-0.055,0.078-0.089,0.107 l-33.989,15.131L238.51,247.3c0.03-0.036,0.071-0.055,0.107-0.09L447.765,38.058c5.038-5.039,13.819-5.033,18.846,0.005 c2.518,2.51,3.905,5.855,3.905,9.414C470.516,51.036,469.127,54.38,466.61,56.897z"></path> </g> </g> </g></svg>
+          Editar
+        </button>
+        <button class="remove_file2">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+          Excluir
+        </button>
+      </div>
+    </div>
+    <p class="video_title">VIDEO</p>
+    <input id="video_input1" type="file" accept="video/*" required>
+    <div class="video_container">
+        <video id="video-preview" muted autoplay loop></video>
+        <button class="remove_video">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+            Excluir
+        </button>
+    </div>
+    <p id="text_input_title2">DESCRIÇÃO DO FILME (SINOPSE)</p>
+    <p id="char-count2">0/250</p>
+    <input type="text" id="input-text2" maxlength="250" placeholder="Digite o texto aqui" oninput="updateCharCount2()" onkeyup="updatePreview2()" required/>
+    <p class="preview-text2"></p>
+    <p class="line-item-property__field">
+      <input type="file" id="croppedImageInput2" name="properties[Foto filme principal]" form="product-form-{{ section.id }}">
+      <input type="text" id="replicated-text2" name="properties[Descrição do filme]" form="product-form-{{ section.id }}"/>
+      <input type="file" id="video_input2" name="properties[Foto filme principal]" form="product-form-{{ section.id }}">
+    </p>
+  </div>
+
+  <div class="rounded-container">
+    <P class="name_container">LISTA "ASSISTIR NOVAMENTE"</P>
+    <p id="fild_title3">FOTO 1º FILME</p>
+    <input id="upload3" type="file" accept="image/*" required>
+    <div class="above_upload3"> 
+        <img id="previewResult3" src="">
+        <div class="btns_above_upload3">
+            <button class="open__popup3">
+                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 494.936 494.936" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M389.844,182.85c-6.743,0-12.21,5.467-12.21,12.21v222.968c0,23.562-19.174,42.735-42.736,42.735H67.157 c-23.562,0-42.736-19.174-42.736-42.735V150.285c0-23.562,19.174-42.735,42.736-42.735h267.741c6.743,0,12.21-5.467,12.21-12.21 s-5.467-12.21-12.21-12.21H67.157C30.126,83.13,0,113.255,0,150.285v267.743c0,37.029,30.126,67.155,67.157,67.155h267.741 c37.03,0,67.156-30.126,67.156-67.155V195.061C402.054,188.318,396.587,182.85,389.844,182.85z"></path> <path d="M483.876,20.791c-14.72-14.72-38.669-14.714-53.377,0L221.352,229.944c-0.28,0.28-3.434,3.559-4.251,5.396l-28.963,65.069 c-2.057,4.619-1.056,10.027,2.521,13.6c2.337,2.336,5.461,3.576,8.639,3.576c1.675,0,3.362-0.346,4.96-1.057l65.07-28.963 c1.83-0.815,5.114-3.97,5.396-4.25L483.876,74.169c7.131-7.131,11.06-16.61,11.06-26.692 C494.936,37.396,491.007,27.915,483.876,20.791z M466.61,56.897L257.457,266.05c-0.035,0.036-0.055,0.078-0.089,0.107 l-33.989,15.131L238.51,247.3c0.03-0.036,0.071-0.055,0.107-0.09L447.765,38.058c5.038-5.039,13.819-5.033,18.846,0.005 c2.518,2.51,3.905,5.855,3.905,9.414C470.516,51.036,469.127,54.38,466.61,56.897z"></path> </g> </g> </g></svg>
+                Editar
+            </button>
+            <button class="remove_file3">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+                Excluir
+            </button>
+        </div>
+    </div>
+    <p class="line-item-property__field">
+    <input type="file" id="croppedImageInput3" name="properties[Foto do 1º Filme]" form="product-form-{{ section.id }}">
+    </p>
+
+    <p id="fild_title4">FOTO 2º FILME</p>
+    <input id="upload4" type="file" accept="image/*" required>
+    <div class="above_upload4"> 
+        <img id="previewResult4" src="">
+        <div class="btns_above_upload4">
+            <button class="open__popup4">
+                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 494.936 494.936" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M389.844,182.85c-6.743,0-12.21,5.467-12.21,12.21v222.968c0,23.562-19.174,42.735-42.736,42.735H67.157 c-23.562,0-42.736-19.174-42.736-42.735V150.285c0-23.562,19.174-42.735,42.736-42.735h267.741c6.743,0,12.21-5.467,12.21-12.21 s-5.467-12.21-12.21-12.21H67.157C30.126,83.13,0,113.255,0,150.285v267.743c0,37.029,30.126,67.155,67.157,67.155h267.741 c37.03,0,67.156-30.126,67.156-67.155V195.061C402.054,188.318,396.587,182.85,389.844,182.85z"></path> <path d="M483.876,20.791c-14.72-14.72-38.669-14.714-53.377,0L221.352,229.944c-0.28,0.28-3.434,3.559-4.251,5.396l-28.963,65.069 c-2.057,4.619-1.056,10.027,2.521,13.6c2.337,2.336,5.461,3.576,8.639,3.576c1.675,0,3.362-0.346,4.96-1.057l65.07-28.963 c1.83-0.815,5.114-3.97,5.396-4.25L483.876,74.169c7.131-7.131,11.06-16.61,11.06-26.692 C494.936,37.396,491.007,27.915,483.876,20.791z M466.61,56.897L257.457,266.05c-0.035,0.036-0.055,0.078-0.089,0.107 l-33.989,15.131L238.51,247.3c0.03-0.036,0.071-0.055,0.107-0.09L447.765,38.058c5.038-5.039,13.819-5.033,18.846,0.005 c2.518,2.51,3.905,5.855,3.905,9.414C470.516,51.036,469.127,54.38,466.61,56.897z"></path> </g> </g> </g></svg>
+                Editar
+            </button>
+            <button class="remove_file4">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+                Excluir
+            </button>
+        </div>
+    </div>
+    <p class="line-item-property__field">
+    <input type="file" id="croppedImageInput4" name="properties[Foto do 2º Filme]" form="product-form-{{ section.id }}">
+    </p>
+  
+    <p id="fild_title5">FOTO 3º FILME</p>
+    <input id="upload5" type="file" accept="image/*" required>
+    <div class="above_upload5"> 
+        <img id="previewResult5" src="">
+        <div class="btns_above_upload5">
+            <button class="open__popup5">
+                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 494.936 494.936" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M389.844,182.85c-6.743,0-12.21,5.467-12.21,12.21v222.968c0,23.562-19.174,42.735-42.736,42.735H67.157 c-23.562,0-42.736-19.174-42.736-42.735V150.285c0-23.562,19.174-42.735,42.736-42.735h267.741c6.743,0,12.21-5.467,12.21-12.21 s-5.467-12.21-12.21-12.21H67.157C30.126,83.13,0,113.255,0,150.285v267.743c0,37.029,30.126,67.155,67.157,67.155h267.741 c37.03,0,67.156-30.126,67.156-67.155V195.061C402.054,188.318,396.587,182.85,389.844,182.85z"></path> <path d="M483.876,20.791c-14.72-14.72-38.669-14.714-53.377,0L221.352,229.944c-0.28,0.28-3.434,3.559-4.251,5.396l-28.963,65.069 c-2.057,4.619-1.056,10.027,2.521,13.6c2.337,2.336,5.461,3.576,8.639,3.576c1.675,0,3.362-0.346,4.96-1.057l65.07-28.963 c1.83-0.815,5.114-3.97,5.396-4.25L483.876,74.169c7.131-7.131,11.06-16.61,11.06-26.692 C494.936,37.396,491.007,27.915,483.876,20.791z M466.61,56.897L257.457,266.05c-0.035,0.036-0.055,0.078-0.089,0.107 l-33.989,15.131L238.51,247.3c0.03-0.036,0.071-0.055,0.107-0.09L447.765,38.058c5.038-5.039,13.819-5.033,18.846,0.005 c2.518,2.51,3.905,5.855,3.905,9.414C470.516,51.036,469.127,54.38,466.61,56.897z"></path> </g> </g> </g></svg>
+          Editar
+        </button>
+        <button class="remove_file5">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+            Excluir
+        </button>
+    </div>
+    </div>
+    <p class="line-item-property__field">
+    <input type="file" id="croppedImageInput5" name="properties[Foto do 3º Filme]" form="product-form-{{ section.id }}">
+    </p>
+
+    <p id="fild_title6">FOTO 4º FILME</p>
+    <input id="upload6" type="file" accept="image/*" required>
+    <div class="above_upload6"> 
+        <img id="previewResult6" src="">
+        <div class="btns_above_upload6">
+            <button class="open__popup6">
+                <svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 494.936 494.936" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M389.844,182.85c-6.743,0-12.21,5.467-12.21,12.21v222.968c0,23.562-19.174,42.735-42.736,42.735H67.157 c-23.562,0-42.736-19.174-42.736-42.735V150.285c0-23.562,19.174-42.735,42.736-42.735h267.741c6.743,0,12.21-5.467,12.21-12.21 s-5.467-12.21-12.21-12.21H67.157C30.126,83.13,0,113.255,0,150.285v267.743c0,37.029,30.126,67.155,67.157,67.155h267.741 c37.03,0,67.156-30.126,67.156-67.155V195.061C402.054,188.318,396.587,182.85,389.844,182.85z"></path> <path d="M483.876,20.791c-14.72-14.72-38.669-14.714-53.377,0L221.352,229.944c-0.28,0.28-3.434,3.559-4.251,5.396l-28.963,65.069 c-2.057,4.619-1.056,10.027,2.521,13.6c2.337,2.336,5.461,3.576,8.639,3.576c1.675,0,3.362-0.346,4.96-1.057l65.07-28.963 c1.83-0.815,5.114-3.97,5.396-4.25L483.876,74.169c7.131-7.131,11.06-16.61,11.06-26.692 C494.936,37.396,491.007,27.915,483.876,20.791z M466.61,56.897L257.457,266.05c-0.035,0.036-0.055,0.078-0.089,0.107 l-33.989,15.131L238.51,247.3c0.03-0.036,0.071-0.055,0.107-0.09L447.765,38.058c5.038-5.039,13.819-5.033,18.846,0.005 c2.518,2.51,3.905,5.855,3.905,9.414C470.516,51.036,469.127,54.38,466.61,56.897z"></path> </g> </g> </g></svg>
+                Editar
+            </button>
+            <button class="remove_file6">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+                Excluir
+            </button>
+        </div>
+    </div>
+    <p class="line-item-property__field">
+    <input type="file" id="croppedImageInput6" name="properties[Foto do 4º Filme]" form="product-form-{{ section.id }}">
+    </p>
+
+  </div>
+
+  <div class="popup__background1">  
+    <div id="Popup__editor1">
+      <div class="editorContainer1">
+        <div id="editor1"></div>
+        <div class="user1">
+          <h1 id="howswhatching1">Quem está assistindo?</h1>
+          <div id="preview1"></div>
+          <p class="user__name1">Nome</p>
+        </div>
+      </div>
+      <div class="btns__PopupEditor1">
+        <button id="cropBtn1">
+          <svg fill="#2dc863" viewBox="-0.64 -0.64 33.28 33.28" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#2dc863" stroke-width="0.64"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM22.386 10.146l-9.388 9.446-4.228-4.227c-0.39-0.39-1.024-0.39-1.415 0s-0.391 1.023 0 1.414l4.95 4.95c0.39 0.39 1.024 0.39 1.415 0 0.045-0.045 0.084-0.094 0.119-0.145l9.962-10.024c0.39-0.39 0.39-1.024 0-1.415s-1.024-0.39-1.415 0z"></path> </g></svg>
+        </button>
+        <button id="closePopupEditor1">
+          <svg viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" style="padding: 30%;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>close [#1511]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -240.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <polygon id="close-[#1511]" points="375.0183 90 384 98.554 382.48065 100 373.5 91.446 364.5183 100 363 98.554 371.98065 90 363 81.446 364.5183 80 373.5 88.554 382.48065 80 384 81.446"> </polygon> </g> </g> </g> </g></svg>
+        </button>
+        <button id="remove_file_editor1">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup__background2">  
+    <div id="Popup__editor2">
+      <div class="editorContainer2">
+        <div id="editor2"></div>
+        <div class="main2">
+          <div id="preview2"></div>
+          <div class="mask2"></div>
+          <div class="main__title2">
+              <img class="title__img2" src="https://cdn.shopify.com/s/files/1/0751/1936/2365/files/06fad417243017.562b7999d195b.png?v=1684013718">
+          </div>
+          <div class="main__description2">Comedia • Aventura • Drama</div>
+          <div class="main__btns2">
+              <button class="favorite2">
+                  <svg class="favorited2" width="100%" height="100%" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M93.99 8.97c-21.91 0-29.96 22.39-29.96 22.39s-7.94-22.39-30-22.39c-16.58 0-35.48 13.14-28.5 43.01c6.98 29.87 58.56 67.08 58.56 67.08s51.39-37.21 58.38-67.08c6.98-29.87-10.56-43.01-28.48-43.01z" fill="#f44336"> </path> <g fill="#c33"> <path d="M30.65 11.2c17.2 0 25.74 18.49 28.5 25.98c.39 1.07 1.88 1.1 2.33.06L64 31.35C60.45 20.01 50.69 8.97 34.03 8.97c-6.9 0-14.19 2.28-19.86 7.09c5.01-3.29 10.88-4.86 16.48-4.86z"> </path> <path d="M93.99 8.97c-5.29 0-10.11 1.15-13.87 3.47c2.64-1.02 5.91-1.24 9.15-1.24c16.21 0 30.72 12.29 24.17 40.7c-5.62 24.39-38.46 53.98-48.49 65.27c-.64.72-.86 1.88-.86 1.88s51.39-37.21 58.38-67.08c6.98-29.86-10.53-43-28.48-43z"> </path> </g> <path d="M17.04 24.82c3.75-4.68 10.45-8.55 16.13-4.09c3.07 2.41 1.73 7.35-1.02 9.43c-4 3.04-7.48 4.87-9.92 9.63c-1.46 2.86-2.34 5.99-2.79 9.18c-.18 1.26-1.83 1.57-2.45.46c-4.22-7.48-5.42-17.78.05-24.61z" fill="#ff8a80"> </path> <path d="M77.16 34.66c-1.76 0-3-1.7-2.36-3.34c1.19-3.02 2.73-5.94 4.58-8.54c2.74-3.84 7.95-6.08 11.25-3.75c3.38 2.38 2.94 7.14.57 9.44c-5.09 4.93-11.51 6.19-14.04 6.19z" fill="#ff8a80"> </path> </g></svg>
+                  <p>Favoritar</p>
+              </button>
+              <button class="play2">
+                  <svg fill="#000000" height="100%" width="100%" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.00 512.00" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="2.048"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M500.203,236.907L30.869,2.24c-6.613-3.285-14.443-2.944-20.736,0.939C3.84,7.083,0,13.931,0,21.333v469.333 c0,7.403,3.84,14.251,10.133,18.155c3.413,2.112,7.296,3.179,11.2,3.179c3.264,0,6.528-0.747,9.536-2.24l469.333-234.667 C507.435,271.467,512,264.085,512,256S507.435,240.533,500.203,236.907z"></path> </g> </g> </g></svg>
+                  <p>Play</p>
+              </button>
+              <button class="info2">
+                  <svg fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.84 -0.84 29.64 29.64" xml:space="preserve" width="100%" height="100%" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.055928"></g><g id="SVGRepo_iconCarrier"> <g> <g id="c126_exclamation"> <path d="M13.982,0.001C6.259,0.001,0,6.259,0,13.984c0,7.721,6.259,13.98,13.982,13.98c7.722,0,13.982-6.26,13.982-13.98 C27.965,6.259,21.704,0.001,13.982,0.001z M13.982,26.533c-6.933,0-12.551-5.619-12.551-12.549 c0-6.935,5.618-12.552,12.551-12.552c6.931,0,12.55,5.617,12.55,12.552C26.532,20.914,20.913,26.533,13.982,26.533z"></path> <rect x="12.004" y="10.551" width="3.931" height="12.649"></rect> <path d="M13.995,5.072c-1.265,0-2.095,0.852-2.095,1.963c0,1.087,0.802,1.964,2.044,1.964c1.317,0,2.119-0.877,2.119-1.964 C16.037,5.924,15.262,5.072,13.995,5.072z"></path> </g> <g id="Capa_1_139_"> </g> </g> </g></svg>
+                  <p>Info</p>
+              </button>
+          </div>
+        </div>
+      </div>
+      <div class="btns__PopupEditor2">
+        <button id="cropBtn2">
+          <svg fill="#2dc863" viewBox="-0.64 -0.64 33.28 33.28" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#2dc863" stroke-width="0.64"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM22.386 10.146l-9.388 9.446-4.228-4.227c-0.39-0.39-1.024-0.39-1.415 0s-0.391 1.023 0 1.414l4.95 4.95c0.39 0.39 1.024 0.39 1.415 0 0.045-0.045 0.084-0.094 0.119-0.145l9.962-10.024c0.39-0.39 0.39-1.024 0-1.415s-1.024-0.39-1.415 0z"></path> </g></svg>
+        </button>
+        <button id="closePopupEditor2">
+          <svg viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" style="padding: 30%;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>close [#1511]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -240.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <polygon id="close-[#1511]" points="375.0183 90 384 98.554 382.48065 100 373.5 91.446 364.5183 100 363 98.554 371.98065 90 363 81.446 364.5183 80 373.5 88.554 382.48065 80 384 81.446"> </polygon> </g> </g> </g> </g></svg>
+        </button>
+        <button id="remove_file_editor2">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup__background3">  
+    <div id="Popup__editor3">
+      <div class="editorContainer3">
+        <div id="editor3"></div>
+        <div class="img_list3">
+            <p id="list_p3">Continuar Assistindo</p>
+            <div id="preview3"></div>
+        </div>
+      </div>
+      <div class="btns__PopupEditor3">
+        <button id="cropBtn3">
+          <svg fill="#2dc863" viewBox="-0.64 -0.64 33.28 33.28" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#2dc863" stroke-width="0.64"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM22.386 10.146l-9.388 9.446-4.228-4.227c-0.39-0.39-1.024-0.39-1.415 0s-0.391 1.023 0 1.414l4.95 4.95c0.39 0.39 1.024 0.39 1.415 0 0.045-0.045 0.084-0.094 0.119-0.145l9.962-10.024c0.39-0.39 0.39-1.024 0-1.415s-1.024-0.39-1.415 0z"></path> </g></svg>
+        </button>
+        <button id="closePopupEditor3">
+            <svg viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" style="padding: 30%;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>close [#1511]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -240.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <polygon id="close-[#1511]" points="375.0183 90 384 98.554 382.48065 100 373.5 91.446 364.5183 100 363 98.554 371.98065 90 363 81.446 364.5183 80 373.5 88.554 382.48065 80 384 81.446"> </polygon> </g> </g> </g> </g></svg>
+        </button>
+        <button id="remove_file_editor3">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup__background4">  
+    <div id="Popup__editor4">
+      <div class="editorContainer4">
+        <div id="editor4"></div>
+        <div class="img_list4">
+            <p id="list_p4">Continuar Assistindo</p>
+            <div id="preview4"></div>
+        </div>
+      </div>
+      <div class="btns__PopupEditor4">
+        <button id="cropBtn4">
+          <svg fill="#2dc863" viewBox="-0.64 -0.64 33.28 33.28" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#2dc863" stroke-width="0.64"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM22.386 10.146l-9.388 9.446-4.228-4.227c-0.39-0.39-1.024-0.39-1.415 0s-0.391 1.023 0 1.414l4.95 4.95c0.39 0.39 1.024 0.39 1.415 0 0.045-0.045 0.084-0.094 0.119-0.145l9.962-10.024c0.39-0.39 0.39-1.024 0-1.415s-1.024-0.39-1.415 0z"></path> </g></svg>
+        </button>
+        <button id="closePopupEditor4">
+            <svg viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" style="padding: 30%;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>close [#1511]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -240.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <polygon id="close-[#1511]" points="375.0183 90 384 98.554 382.48065 100 373.5 91.446 364.5183 100 363 98.554 371.98065 90 363 81.446 364.5183 80 373.5 88.554 382.48065 80 384 81.446"> </polygon> </g> </g> </g> </g></svg>
+        </button>
+        <button id="remove_file_editor4">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup__background5">  
+    <div id="Popup__editor5">
+      <div class="editorContainer5">
+        <div id="editor5"></div>
+        <div class="img_list5">
+            <p id="list_p5">Continuar Assistindo</p>
+            <div id="preview5"></div>
+        </div>
+      </div>
+      <div class="btns__PopupEditor5">
+        <button id="cropBtn5">
+          <svg fill="#2dc863" viewBox="-0.64 -0.64 33.28 33.28" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#2dc863" stroke-width="0.64"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM22.386 10.146l-9.388 9.446-4.228-4.227c-0.39-0.39-1.024-0.39-1.415 0s-0.391 1.023 0 1.414l4.95 4.95c0.39 0.39 1.024 0.39 1.415 0 0.045-0.045 0.084-0.094 0.119-0.145l9.962-10.024c0.39-0.39 0.39-1.024 0-1.415s-1.024-0.39-1.415 0z"></path> </g></svg>
+        </button>
+        <button id="closePopupEditor5">
+            <svg viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" style="padding: 30%;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>close [#1511]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -240.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <polygon id="close-[#1511]" points="375.0183 90 384 98.554 382.48065 100 373.5 91.446 364.5183 100 363 98.554 371.98065 90 363 81.446 364.5183 80 373.5 88.554 382.48065 80 384 81.446"> </polygon> </g> </g> </g> </g></svg>
+        </button>
+        <button id="remove_file_editor5">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup__background6">  
+    <div id="Popup__editor6">
+      <div class="editorContainer6">
+        <div id="editor6"></div>
+        <div class="img_list6">
+            <p id="list_p6">Continuar Assistindo</p>
+            <div id="preview6"></div>
+        </div>
+      </div>
+      <div class="btns__PopupEditor6">
+        <button id="cropBtn6">
+          <svg fill="#2dc863" viewBox="-0.64 -0.64 33.28 33.28" version="1.1" xmlns="http://www.w3.org/2000/svg" stroke="#2dc863" stroke-width="0.64"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM22.386 10.146l-9.388 9.446-4.228-4.227c-0.39-0.39-1.024-0.39-1.415 0s-0.391 1.023 0 1.414l4.95 4.95c0.39 0.39 1.024 0.39 1.415 0 0.045-0.045 0.084-0.094 0.119-0.145l9.962-10.024c0.39-0.39 0.39-1.024 0-1.415s-1.024-0.39-1.415 0z"></path> </g></svg>
+        </button>
+        <button id="closePopupEditor6">
+            <svg viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" style="padding: 30%;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>close [#1511]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -240.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <polygon id="close-[#1511]" points="375.0183 90 384 98.554 382.48065 100 373.5 91.446 364.5183 100 363 98.554 371.98065 90 363 81.446 364.5183 80 373.5 88.554 382.48065 80 384 81.446"> </polygon> </g> </g> </g> </g></svg>
+        </button>
+        <button id="remove_file_editor6">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Trash_Full"> <path id="Vector" d="M14 10V17M10 10V17M6 6V17.8C6 18.9201 6 19.4798 6.21799 19.9076C6.40973 20.2839 6.71547 20.5905 7.0918 20.7822C7.5192 21 8.07899 21 9.19691 21H14.8031C15.921 21 16.48 21 16.9074 20.7822C17.2837 20.5905 17.5905 20.2839 17.7822 19.9076C18 19.4802 18 18.921 18 17.8031V6M6 6H8M6 6H4M8 6H16M8 6C8 5.06812 8 4.60241 8.15224 4.23486C8.35523 3.74481 8.74432 3.35523 9.23438 3.15224C9.60192 3 10.0681 3 11 3H13C13.9319 3 14.3978 3 14.7654 3.15224C15.2554 3.35523 15.6447 3.74481 15.8477 4.23486C15.9999 4.6024 16 5.06812 16 6M16 6H18M18 6H20" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/cropperjs/dist/cropper.min.js"></script>
+
+</body>
+
+<script>
+// container 1
+var cropper1;
+const upload1 = document.getElementById('upload1');
+const aboveUpload1 = document.querySelector('.above_upload1');
+const openPopup1 = document.querySelector('.open__popup1');
+const removeFile1 = document.querySelector('.remove_file1');
+const PopupEditor1 = document.querySelector('.popup__background1');
+const closePopup1 = document.getElementById('closePopupEditor1');
+const cropfileInput1 = document.getElementById('croppedImageInput1');
+
+upload1.addEventListener('change', function(e) {
+  if (e.target.files.length > 0) {
+    PopupEditor1.style.display = 'block';
+    aboveUpload1.style.display = 'flex';
+    closePopup1.style.display = 'none';
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var img = new Image();
+      img.onload = function() {
+        var editor1 = document.getElementById('editor1');
+        editor1.innerHTML = '';
+        editor1.appendChild(img);
+        cropper1 = new Cropper(img, {
+          aspectRatio: 1 / 1,
+          crop: function(event) {
+            var canvas = cropper1.getCroppedCanvas({
+              aspectRatio: 1 / 1
+            });
+            document.getElementById('preview1').innerHTML = '';
+            document.getElementById('preview1').appendChild(canvas);
+          }
+        });
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    PopupEditor1.style.display = 'none';
+    document.getElementById('previewResult1').src = '';
+    closePopup1.style.display = 'none';
+    aboveUpload1.style.display = 'none';
+    cropfileInput1.value = '';
+  }
+});
+
+
+document.getElementById('cropBtn1').addEventListener('click', function() {
+  var canvas = cropper1.getCroppedCanvas({
+    aspectRatio: 1 / 1
+  });
+  PopupEditor1.style.display = 'none';
+  closePopup1.style.display = 'flex';
+  var croppedImage1 = canvas.toDataURL();
+  document.getElementById('previewResult1').src = croppedImage1;
+
+  fetch(croppedImage1)
+    .then(res => res.blob())
+    .then(blob => {
+      var cropfileInput1 = document.getElementById('croppedImageInput1');
+      var fileList1 = createFileList(blob, 'croppedImage1.png');
+      cropfileInput1.files = fileList1;
+    });
+  function createFileList(file1, name1) {
+    var fileList1 = new DataTransfer();
+    var newFile1 = new File([file1], name1);
+    fileList1.items.add(newFile1);
+    return fileList1.files;
+  }    
+});
+
+closePopup1.addEventListener('click', function() {
+  PopupEditor1.style.display = 'none';
+});
+
+document.getElementById('remove_file_editor1').addEventListener('click', function() {
+  upload1.value = '';
+  PopupEditor1.style.display = 'none';
+  document.getElementById('previewResult1').src = '';
+  closePopup1.style.display = 'none';
+  aboveUpload1.style.display = 'none';
+  cropfileInput1.value = '';
+});
+
+openPopup1.addEventListener('click', function() {
+  PopupEditor1.style.display = 'block';
+  var fileInput1 = document.getElementById('upload1');
+  var file = fileInput1.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = new Image();
+    img.onload = function() {
+      var editor1 = document.getElementById('editor1');
+      editor1.innerHTML = '';
+      editor1.appendChild(img);
+      cropper1 = new Cropper(img, {
+        aspectRatio: 1 / 1,
+        crop: function(event) {
+          var canvas = cropper1.getCroppedCanvas({
+            aspectRatio: 1 / 1
+          });
+          document.getElementById('preview1').innerHTML = '';
+          document.getElementById('preview1').appendChild(canvas);
+        }
+      });
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+removeFile1.addEventListener('click', function() {
+  upload1.value = '';
+  PopupEditor1.style.display = 'none';
+  document.getElementById('previewResult1').src = '';
+  closePopup1.style.display = 'none';
+  aboveUpload1.style.display = 'none';
+  cropfileInput1.value = '';
+});
+
+function updatePreview1() {
+  var inputText1 = document.getElementById("input-text1").value;
+  var previewText1 = document.querySelector(".user__name1");
+  previewText1.textContent = inputText1;
+}
+
+function updateCharCount() {
+  var inputText1 = document.getElementById("input-text1").value;
+  var charCount1 = inputText1.length;
+  var charLimit1 = 20;
+  var charCountElement1 = document.getElementById("char-count1");
+  charCountElement1.textContent = charCount1 + "/" + charLimit1;
+  var replicatedTextElement1 = document.getElementById("replicated-text1");
+  replicatedTextElement1.value = inputText1;
+}
+
+var $input1 = $('#input-text1');
+$input1.on('input', function(e) {
+  var max = 20;
+  setTimeout(function() {
+    if ($input1.val().length > max) {
+      $input1.val($input1.val().substr(0, max));
+    }
+    updatePreview1(); // Atualiza a prévia do texto
+    updateCharCount(); // Atualiza a contagem de caracteres
+  }, 0);
+});
+
+// container 2 
+
+var cropper2;
+const upload2 = document.getElementById('upload2');
+const aboveUpload2 = document.querySelector('.above_upload2');
+const openPopup2 = document.querySelector('.open__popup2');
+const removeFile2 = document.querySelector('.remove_file2');
+const PopupEditor2 = document.querySelector('.popup__background2');
+const closePopup2 = document.getElementById('closePopupEditor2');
+const cropfileInput2 = document.getElementById('croppedImageInput2');
+
+upload2.addEventListener('change', function(e) {
+  if (e.target.files.length > 0) {
+    PopupEditor2.style.display = 'block';
+    aboveUpload2.style.display = 'flex';
+    closePopup2.style.display = 'none';
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var img = new Image();
+      img.onload = function() {
+        var editor2 = document.getElementById('editor2');
+        editor2.innerHTML = '';
+        editor2.appendChild(img);
+        cropper2 = new Cropper(img, {
+          aspectRatio: 4 / 3,
+          crop: function(event) {
+            var canvas = cropper2.getCroppedCanvas({
+              aspectRatio: 4 / 3
+            });
+            document.getElementById('preview2').innerHTML = '';
+            document.getElementById('preview2').appendChild(canvas);
+          }
+        });
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    PopupEditor2.style.display = 'none';
+    document.getElementById('previewResult2').src = '';
+    closePopup2.style.display = 'none';
+    aboveUpload2.style.display = 'none';
+    cropfileInput2.value = '';
+  }
+});
+
+
+document.getElementById('cropBtn2').addEventListener('click', function() {
+  var canvas = cropper2.getCroppedCanvas({
+    aspectRatio: 4 / 3
+  });
+  PopupEditor2.style.display = 'none';
+  closePopup2.style.display = 'flex';
+  var croppedImage2 = canvas.toDataURL();
+  document.getElementById('previewResult2').src = croppedImage2;
+
+  fetch(croppedImage2)
+    .then(res => res.blob())
+    .then(blob => {
+      var cropfileInput2 = document.getElementById('croppedImageInput2');
+      var fileList2 = createFileList(blob, 'croppedImage2.png');
+      cropfileInput2.files = fileList2;
+    });
+  function createFileList(file2, name2) {
+    var fileList2 = new DataTransfer();
+    var newFile2 = new File([file2], name2);
+    fileList2.items.add(newFile2);
+    return fileList2.files;
+  }    
+});
+
+closePopup2.addEventListener('click', function() {
+  PopupEditor2.style.display = 'none';
+});
+
+document.getElementById('remove_file_editor2').addEventListener('click', function() {
+  upload2.value = '';
+  PopupEditor2.style.display = 'none';
+  document.getElementById('previewResult2').src = '';
+  closePopup2.style.display = 'none';
+  aboveUpload2.style.display = 'none';
+  cropfileInput2.value = '';
+});
+
+openPopup2.addEventListener('click', function() {
+  PopupEditor2.style.display = 'block';
+  var fileInput2 = document.getElementById('upload2');
+  var file = fileInput2.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = new Image();
+    img.onload = function() {
+      var editor2 = document.getElementById('editor2');
+      editor2.innerHTML = '';
+      editor2.appendChild(img);
+      cropper2 = new Cropper(img, {
+        aspectRatio: 4 / 3,
+        crop: function(event) {
+          var canvas = cropper2.getCroppedCanvas({
+            aspectRatio: 4 / 3
+          });
+          document.getElementById('preview2').innerHTML = '';
+          document.getElementById('preview2').appendChild(canvas);
+        }
+      });
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+removeFile2.addEventListener('click', function() {
+  upload2.value = '';
+  PopupEditor2.style.display = 'none';
+  document.getElementById('previewResult2').src = '';
+  closePopup2.style.display = 'none';
+  aboveUpload2.style.display = 'none';
+  cropfileInput2.value = '';
+});
+
+function updatePreview2() {
+  var inputText2 = document.getElementById("input-text2").value;
+  var previewText2 = document.querySelector(".preview-text2");
+  previewText2.textContent = inputText2;
+}
+
+function updateCharCount2() {
+  var inputText2 = document.getElementById("input-text2").value;
+  var charCount2 = inputText2.length;
+  var charLimit2 = 250;
+  var charCountElement2 = document.getElementById("char-count2");
+  charCountElement2.textContent = charCount2 + "/" + charLimit2;
+  var replicatedTextElement2 = document.getElementById("replicated-text2");
+  replicatedTextElement2.value = inputText2;
+}
+
+var $input2 = $('#input-text2');
+$input2.on('input', function(e) {
+  var max = 250;
+  setTimeout(function() {
+    if ($input2.val().length > max) {
+      $input2.val($input2.val().substr(0, max));
+    }
+    updatePreview2();
+    updateCharCount2();
+  }, 0);
+});
+
+
+const videoInput1 = document.getElementById('video_input1');
+const videoInput2 = document.getElementById('video_input2');
+const videoContainer = document.querySelector('.video_container');
+const videoPreview = document.getElementById('video-preview');
+const videoRemove = document.querySelector('.remove_video');
+
+videoInput1.addEventListener('change', function(e) {
+    if (e.target.files.length > 0) {
+    videoContainer.style.display = 'flex';
+    videoInput2.files = e.target.files;
+    videoPreview.src = URL.createObjectURL(e.target.files[0]);
+    } else {
+    videoContainer.style.display = 'none';
+    videoPreview.src = '';
+    videoInput2.value = '';
+    }
+});
+
+videoRemove.addEventListener('click', function() {
+    videoContainer.style.display = 'none';
+    videoPreview.src = '';
+    videoInput2.value = '';
+});
+
+// container 3.1
+
+var cropper3;
+const upload3 = document.getElementById('upload3');
+const aboveUpload3 = document.querySelector('.above_upload3');
+const openPopup3 = document.querySelector('.open__popup3');
+const removeFile3 = document.querySelector('.remove_file3');
+const PopupEditor3 = document.querySelector('.popup__background3');
+const closePopup3 = document.getElementById('closePopupEditor3');
+const cropfileInput3 = document.getElementById('croppedImageInput3');
+
+upload3.addEventListener('change', function(e) {
+  if (e.target.files.length > 0) {
+    PopupEditor3.style.display = 'block';
+    aboveUpload3.style.display = 'flex';
+    closePopup3.style.display = 'none';
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var img = new Image();
+      img.onload = function() {
+        var editor3 = document.getElementById('editor3');
+        editor3.innerHTML = '';
+        editor3.appendChild(img);
+        cropper3 = new Cropper(img, {
+          aspectRatio: 1 / 1,
+          crop: function(event) {
+            var canvas = cropper3.getCroppedCanvas({
+              aspectRatio: 1 / 1
+            });
+            document.getElementById('preview3').innerHTML = '';
+            document.getElementById('preview3').appendChild(canvas);
+          }
+        });
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    PopupEditor3.style.display = 'none';
+    document.getElementById('previewResult3').src = '';
+    closePopup3.style.display = 'none';
+    aboveUpload3.style.display = 'none';
+    cropfileInput3.value = '';
+  }
+});
+
+
+document.getElementById('cropBtn3').addEventListener('click', function() {
+  var canvas = cropper3.getCroppedCanvas({
+    aspectRatio: 1 / 1
+  });
+  PopupEditor3.style.display = 'none';
+  closePopup3.style.display = 'flex';
+  var croppedImage3 = canvas.toDataURL();
+  document.getElementById('previewResult3').src = croppedImage3;
+
+  fetch(croppedImage3)
+    .then(res => res.blob())
+    .then(blob => {
+      var cropfileInput3 = document.getElementById('croppedImageInput3');
+      var fileList3 = createFileList(blob, 'croppedImage3.png');
+      cropfileInput3.files = fileList3;
+    });
+  function createFileList(file3, name3) {
+    var fileList3 = new DataTransfer();
+    var newFile3 = new File([file3], name3);
+    fileList3.items.add(newFile3);
+    return fileList3.files;
+  }    
+});
+
+closePopup3.addEventListener('click', function() {
+  PopupEditor3.style.display = 'none';
+});
+
+document.getElementById('remove_file_editor3').addEventListener('click', function() {
+  upload3.value = '';
+  PopupEditor3.style.display = 'none';
+  document.getElementById('previewResult3').src = '';
+  closePopup3.style.display = 'none';
+  aboveUpload3.style.display = 'none';
+  cropfileInput3.value = '';
+});
+
+openPopup3.addEventListener('click', function() {
+  PopupEditor3.style.display = 'block';
+  var fileInput3 = document.getElementById('upload3');
+  var file = fileInput3.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = new Image();
+    img.onload = function() {
+      var editor3 = document.getElementById('editor3');
+      editor3.innerHTML = '';
+      editor3.appendChild(img);
+      cropper3 = new Cropper(img, {
+        aspectRatio: 1 / 1,
+        crop: function(event) {
+          var canvas = cropper3.getCroppedCanvas({
+            aspectRatio: 1 / 1
+          });
+          document.getElementById('preview3').innerHTML = '';
+          document.getElementById('preview3').appendChild(canvas);
+        }
+      });
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+removeFile3.addEventListener('click', function() {
+  upload3.value = '';
+  PopupEditor3.style.display = 'none';
+  document.getElementById('previewResult3').src = '';
+  closePopup3.style.display = 'none';
+  aboveUpload3.style.display = 'none';
+  cropfileInput3.value = '';
+});
+
+// container 3.2
+
+var cropper4;
+const upload4 = document.getElementById('upload4');
+const aboveUpload4 = document.querySelector('.above_upload4');
+const openPopup4 = document.querySelector('.open__popup4');
+const removeFile4 = document.querySelector('.remove_file4');
+const PopupEditor4 = document.querySelector('.popup__background4');
+const closePopup4 = document.getElementById('closePopupEditor4');
+const cropfileInput4 = document.getElementById('croppedImageInput4');
+
+upload4.addEventListener('change', function(e) {
+  if (e.target.files.length > 0) {
+    PopupEditor4.style.display = 'block';
+    aboveUpload4.style.display = 'flex';
+    closePopup4.style.display = 'none';
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var img = new Image();
+      img.onload = function() {
+        var editor4 = document.getElementById('editor4');
+        editor4.innerHTML = '';
+        editor4.appendChild(img);
+        cropper4 = new Cropper(img, {
+          aspectRatio: 1 / 1,
+          crop: function(event) {
+            var canvas = cropper4.getCroppedCanvas({
+              aspectRatio: 1 / 1
+            });
+            document.getElementById('preview4').innerHTML = '';
+            document.getElementById('preview4').appendChild(canvas);
+          }
+        });
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    PopupEditor4.style.display = 'none';
+    document.getElementById('previewResult4').src = '';
+    closePopup4.style.display = 'none';
+    aboveUpload4.style.display = 'none';
+    cropfileInput4.value = '';
+  }
+});
+
+
+document.getElementById('cropBtn4').addEventListener('click', function() {
+  var canvas = cropper4.getCroppedCanvas({
+    aspectRatio: 1 / 1
+  });
+  PopupEditor4.style.display = 'none';
+  closePopup4.style.display = 'flex';
+  var croppedImage4 = canvas.toDataURL();
+  document.getElementById('previewResult4').src = croppedImage4;
+
+  fetch(croppedImage4)
+    .then(res => res.blob())
+    .then(blob => {
+      var cropfileInput4 = document.getElementById('croppedImageInput4');
+      var fileList4 = createFileList(blob, 'croppedImage4.png');
+      cropfileInput4.files = fileList4;
+    });
+  function createFileList(file4, name4) {
+    var fileList4 = new DataTransfer();
+    var newFile4 = new File([file4], name4);
+    fileList4.items.add(newFile4);
+    return fileList4.files;
+  }    
+});
+
+closePopup4.addEventListener('click', function() {
+  PopupEditor4.style.display = 'none';
+});
+
+document.getElementById('remove_file_editor4').addEventListener('click', function() {
+  upload4.value = '';
+  PopupEditor4.style.display = 'none';
+  document.getElementById('previewResult4').src = '';
+  closePopup4.style.display = 'none';
+  aboveUpload4.style.display = 'none';
+  cropfileInput4.value = '';
+});
+
+openPopup4.addEventListener('click', function() {
+  PopupEditor4.style.display = 'block';
+  var fileInput4 = document.getElementById('upload4');
+  var file = fileInput4.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = new Image();
+    img.onload = function() {
+      var editor4 = document.getElementById('editor4');
+      editor4.innerHTML = '';
+      editor4.appendChild(img);
+      cropper4 = new Cropper(img, {
+        aspectRatio: 1 / 1,
+        crop: function(event) {
+          var canvas = cropper4.getCroppedCanvas({
+            aspectRatio: 1 / 1
+          });
+          document.getElementById('preview4').innerHTML = '';
+          document.getElementById('preview4').appendChild(canvas);
+        }
+      });
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+removeFile4.addEventListener('click', function() {
+  upload4.value = '';
+  PopupEditor4.style.display = 'none';
+  document.getElementById('previewResult4').src = '';
+  closePopup4.style.display = 'none';
+  aboveUpload4.style.display = 'none';
+  cropfileInput4.value = '';
+});
+
+// container 3.3
+
+var cropper5;
+const upload5 = document.getElementById('upload5');
+const aboveUpload5 = document.querySelector('.above_upload5');
+const openPopup5 = document.querySelector('.open__popup5');
+const removeFile5 = document.querySelector('.remove_file5');
+const PopupEditor5 = document.querySelector('.popup__background5');
+const closePopup5 = document.getElementById('closePopupEditor5');
+const cropfileInput5 = document.getElementById('croppedImageInput5');
+
+upload5.addEventListener('change', function(e) {
+  if (e.target.files.length > 0) {
+    PopupEditor5.style.display = 'block';
+    aboveUpload5.style.display = 'flex';
+    closePopup5.style.display = 'none';
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var img = new Image();
+      img.onload = function() {
+        var editor5 = document.getElementById('editor5');
+        editor5.innerHTML = '';
+        editor5.appendChild(img);
+        cropper5 = new Cropper(img, {
+          aspectRatio: 1 / 1,
+          crop: function(event) {
+            var canvas = cropper5.getCroppedCanvas({
+              aspectRatio: 1 / 1
+            });
+            document.getElementById('preview5').innerHTML = '';
+            document.getElementById('preview5').appendChild(canvas);
+          }
+        });
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    PopupEditor5.style.display = 'none';
+    document.getElementById('previewResult5').src = '';
+    closePopup5.style.display = 'none';
+    aboveUpload5.style.display = 'none';
+    cropfileInput5.value = '';
+  }
+});
+
+
+document.getElementById('cropBtn5').addEventListener('click', function() {
+  var canvas = cropper5.getCroppedCanvas({
+    aspectRatio: 1 / 1
+  });
+  PopupEditor5.style.display = 'none';
+  closePopup5.style.display = 'flex';
+  var croppedImage5 = canvas.toDataURL();
+  document.getElementById('previewResult5').src = croppedImage5;
+
+  fetch(croppedImage5)
+    .then(res => res.blob())
+    .then(blob => {
+      var cropfileInput5 = document.getElementById('croppedImageInput5');
+      var fileList5 = createFileList(blob, 'croppedImage5.png');
+      cropfileInput5.files = fileList5;
+    });
+  function createFileList(file5, name5) {
+    var fileList5 = new DataTransfer();
+    var newFile5 = new File([file5], name5);
+    fileList5.items.add(newFile5);
+    return fileList5.files;
+  }    
+});
+
+closePopup5.addEventListener('click', function() {
+  PopupEditor5.style.display = 'none';
+});
+
+document.getElementById('remove_file_editor5').addEventListener('click', function() {
+  upload5.value = '';
+  PopupEditor5.style.display = 'none';
+  document.getElementById('previewResult5').src = '';
+  closePopup5.style.display = 'none';
+  aboveUpload5.style.display = 'none';
+  cropfileInput5.value = '';
+});
+
+openPopup5.addEventListener('click', function() {
+  PopupEditor5.style.display = 'block';
+  var fileInput5 = document.getElementById('upload5');
+  var file = fileInput5.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = new Image();
+    img.onload = function() {
+      var editor5 = document.getElementById('editor5');
+      editor5.innerHTML = '';
+      editor5.appendChild(img);
+      cropper5 = new Cropper(img, {
+        aspectRatio: 1 / 1,
+        crop: function(event) {
+          var canvas = cropper5.getCroppedCanvas({
+            aspectRatio: 1 / 1
+          });
+          document.getElementById('preview5').innerHTML = '';
+          document.getElementById('preview5').appendChild(canvas);
+        }
+      });
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+removeFile5.addEventListener('click', function() {
+  upload5.value = '';
+  PopupEditor5.style.display = 'none';
+  document.getElementById('previewResult5').src = '';
+  closePopup5.style.display = 'none';
+  aboveUpload5.style.display = 'none';
+  cropfileInput5.value = '';
+});
+
+// container 3.4
+
+var cropper6;
+const upload6 = document.getElementById('upload6');
+const aboveUpload6 = document.querySelector('.above_upload6');
+const openPopup6 = document.querySelector('.open__popup6');
+const removeFile6 = document.querySelector('.remove_file6');
+const PopupEditor6 = document.querySelector('.popup__background6');
+const closePopup6 = document.getElementById('closePopupEditor6');
+const cropfileInput6 = document.getElementById('croppedImageInput6');
+
+upload6.addEventListener('change', function(e) {
+  if (e.target.files.length > 0) {
+    PopupEditor6.style.display = 'block';
+    aboveUpload6.style.display = 'flex';
+    closePopup6.style.display = 'none';
+    var file = e.target.files[0];
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var img = new Image();
+      img.onload = function() {
+        var editor6 = document.getElementById('editor6');
+        editor6.innerHTML = '';
+        editor6.appendChild(img);
+        cropper6 = new Cropper(img, {
+          aspectRatio: 1 / 1,
+          crop: function(event) {
+            var canvas = cropper6.getCroppedCanvas({
+              aspectRatio: 1 / 1
+            });
+            document.getElementById('preview6').innerHTML = '';
+            document.getElementById('preview6').appendChild(canvas);
+          }
+        });
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    PopupEditor6.style.display = 'none';
+    document.getElementById('previewResult6').src = '';
+    closePopup6.style.display = 'none';
+    aboveUpload6.style.display = 'none';
+    cropfileInput6.value = '';
+  }
+});
+
+
+document.getElementById('cropBtn6').addEventListener('click', function() {
+  var canvas = cropper6.getCroppedCanvas({
+    aspectRatio: 1 / 1
+  });
+  PopupEditor6.style.display = 'none';
+  closePopup6.style.display = 'flex';
+  var croppedImage6 = canvas.toDataURL();
+  document.getElementById('previewResult6').src = croppedImage6;
+
+  fetch(croppedImage6)
+    .then(res => res.blob())
+    .then(blob => {
+      var cropfileInput6 = document.getElementById('croppedImageInput6');
+      var fileList6 = createFileList(blob, 'croppedImage6.png');
+      cropfileInput6.files = fileList6;
+    });
+  function createFileList(file6, name6) {
+    var fileList6 = new DataTransfer();
+    var newFile6 = new File([file6], name6);
+    fileList6.items.add(newFile6);
+    return fileList6.files;
+  }    
+});
+
+closePopup6.addEventListener('click', function() {
+  PopupEditor6.style.display = 'none';
+});
+
+document.getElementById('remove_file_editor6').addEventListener('click', function() {
+  upload6.value = '';
+  PopupEditor6.style.display = 'none';
+  document.getElementById('previewResult6').src = '';
+  closePopup6.style.display = 'none';
+  aboveUpload6.style.display = 'none';
+  cropfileInput6.value = '';
+});
+
+openPopup6.addEventListener('click', function() {
+  PopupEditor6.style.display = 'block';
+  var fileInput6 = document.getElementById('upload6');
+  var file = fileInput6.files[0];
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    var img = new Image();
+    img.onload = function() {
+      var editor6 = document.getElementById('editor6');
+      editor6.innerHTML = '';
+      editor6.appendChild(img);
+      cropper6 = new Cropper(img, {
+        aspectRatio: 1 / 1,
+        crop: function(event) {
+          var canvas = cropper6.getCroppedCanvas({
+            aspectRatio: 1 / 1
+          });
+          document.getElementById('preview6').innerHTML = '';
+          document.getElementById('preview6').appendChild(canvas);
+        }
+      });
+    };
+    img.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+removeFile6.addEventListener('click', function() {
+  upload6.value = '';
+  PopupEditor6.style.display = 'none';
+  document.getElementById('previewResult6').src = '';
+  closePopup6.style.display = 'none';
+  aboveUpload6.style.display = 'none';
+  cropfileInput6.value = '';
+});
+
+</script>
+
+<style>
+.rounded-container {
+  display: flex;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgb(0 0 0 / 0.5);
+  padding: 20px;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0px;
+}
+
+.line-item-property__field {
+  display: none !important;
+}
+
+input[type=file] {
+  width: 100%;  
+  padding: 5px;
+  border-radius: 10px;
+  border: 2px dashed #555;
+  cursor: pointer;
+  transition: transform .3s ease-in-out;
+  font-size: initial;
+  text-align: center;
+}
+
+input[type=file]:hover {
+  transform: scale(1.01);
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  width: 100%;
+  border: none;
+  background: #FF5757;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+    background: #ff3a3a;
+}
+
+input[type=file]:valid::file-selector-button {
+  background:#4BB543;
+}
+
+input[type=text] {
+  width: 100%;
+  height: 30px;
+  font-size: large;
+  font-family: sans-serif;
+  border: 2px dashed #555 !important;
+  border-radius: 10px;
+}
+
+#fild_title1 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 20px 0px 10px;
+  width: 100%;
+}
+
+
+#text_input_title1 {
+    position: relative;
+    top: 10px;
+    margin: 0;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#char-count1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 20px;
+  width: 100%;
+  margin: 0;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+
+.above_upload1 {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  margin: 10px 10px 0px;
+}
+
+#previewResult1 {
+  height: 100%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  border-radius: 50% ;
+}
+
+.btns_above_upload1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btns_above_upload1 button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35%;
+  margin-left: 16px;
+  cursor: pointer;
+  border: 1px dashed #ccc;
+  border-radius: 10%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  background: white;
+  transition: transform .5s ease;
+}
+
+.btns_above_upload1 button:hover {
+  transform: scale(1.02);
+}
+
+.btns_above_upload1 svg {
+  height: 100%;
+}
+
+.popup__background1 {
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: #000000cf;
+}
+
+#Popup__editor1 {
+  position: fixed;
+  display: flex;
+  background: white;
+  border: 1px solid black;
+  margin: auto;
+  z-index: 3;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  flex-direction: column;
+}
+
+.editorContainer1 {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  align-items: center;
+}
+
+#editor1 {
+  height: 50%;
+  aspect-ratio: 1/1;
+}
+
+#editor1 img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.user1 {
+  position: relative;
+  display: flex;
+  height: 50%;
+  aspect-ratio: 9/11;
+  background: black;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#howswhatching1 {
+  position: relative;
+  text-align: center;
+  font-size: 3.3vh;
+  width: 100%;
+  color: white;
+}
+
+#preview1 {
+  height: 60%;
+  border: none;
+  background: none;
+  border-radius: 50%;
+}
+
+.user__name1 {
+  position: relative;
+  text-align: center;
+  font-size: 3vh;
+  width: 100%;
+  color: white;
+  margin: 1vw 0;
+}
+
+
+#preview1 canvas {
+  height: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.btns__PopupEditor1 {
+    position: relative;
+    display: flex;
+    height: 11%;
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    border: 3px dashed;
+    border-left: 0;
+    border-right: 0;
+}
+
+.btns__PopupEditor1 button {
+  display: flex;
+  height: 100%;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btns__PopupEditor1 svg{
+  height: 80%;
+}
+
+#closePopupEditor1 {
+  display: none;
+}
+
+#fild_title2 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 0px 0px 10px;
+  width: 100%;
+}
+
+.above_upload2 {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  margin: 10px 10px 0px;
+}
+
+#previewResult2 {
+  height: 100%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+}
+
+.btns_above_upload2 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btns_above_upload2 button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35%;
+  margin-left: 16px;
+  cursor: pointer;
+  border: 1px dashed #ccc;
+  border-radius: 10%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  background: white;
+  transition: transform .5s ease;
+}
+
+.btns_above_upload2 button:hover {
+  transform: scale(1.02);
+}
+
+.btns_above_upload2 svg {
+  height: 100%;
+}
+
+.video_title {
+    margin: 20px 0px 10px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 100%;
+}
+
+.video_container {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-height: 150px;
+    margin: 10px 10px 0px;
+}
+
+#video-preview {
+    max-width: 150px;
+    max-height: 150px;
+    box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+}
+
+.video_container button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 35px;
+    margin-left: 16px;
+    cursor: pointer;
+    border: 1px dashed #ccc;
+    border-radius: 10%;
+    box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+    background: white;
+    transition: transform .5s ease;
+}
+
+.video_container button:hover {
+  transform: scale(1.02);
+}
+
+.video_container svg {
+    height: 100%;
+}
+
+#text_input_title2 {
+    position: relative;
+    top: 10px;
+    margin: 10px 0px 0px;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    width: 100%;
+}
+
+#char-count2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 20px;
+  width: 100%;
+  margin: 0;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.preview-text2 {
+  display: flex;
+  background: black;
+  color: white;
+  max-height: 100%;
+  width: 100%;
+  padding: 3%;
+  border-radius: 1em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.popup__background2 {
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: #000000cf;
+}
+
+#Popup__editor2 {
+  position: fixed;
+  display: flex;
+  background: white;
+  border: 1px solid black;
+  margin: auto;
+  z-index: 3;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  flex-direction: column;
+}
+
+.editorContainer2 {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  align-items: center;
+}
+
+#editor2 {
+  height: 50%;
+  aspect-ratio: 1/1;
+}
+
+#editor2 img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.main2 {
+  position: relative;
+  height: 50%;
+  aspect-ratio: 9/11;
+}
+
+.mask2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 70%);
+  z-index: 2;
+}
+
+.main__title2 {
+  position: absolute;
+  height: 25%;
+  width: 100%;
+  top: 55%;
+  margin: 0 auto;
+  z-index: 3;
+}
+
+.title__img2 {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-height: 100%;
+  max-width: 70%;
+}
+
+.main__description2 {
+  color: white;
+  position: absolute;
+  top: 82%;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  font-family: sans-serif;
+  font-size: 1.3vh;
+}
+
+.main__btns2 {
+  position: absolute;
+  display: flex;
+  top: 90%;
+  height: 7%;
+  width: 100%;
+  z-index: 3;
+  flex-direction: row;
+  align-items: center;
+}
+
+.favorite2, .info2 {
+  display: flex;
+  width: 30.3333%;
+  height: 100%;
+  margin: 0 auto;
+  color: white;
+  background: none;
+  border: 0;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.favorite2 svg, .info2 svg {
+  margin: 0;
+  height: 50%;
+}
+
+.info2 p, .favorite2 p {
+  margin: auto;
+  width: 100%;
+  color: #979797;
+  font-size: 1.3vh;
+}
+
+.play2 {
+  display: flex;
+  height: 90%;
+  width: 24%;
+  margin: 0 auto;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+
+.play2 svg {
+  height: 50%;
+  width: 50%;    
+}
+
+.play2 p {
+  text-align: left;
+  font-weight: bold;
+  transform: scale(1.2);
+  margin: 0;
+  font-size: 1.4vh;
+}
+
+#preview2 {
+  height: 100%;
+  border: none;
+  background: none;
+}
+
+#preview2 canvas {
+  height: 100%;
+  aspect-ratio: 9/11;
+  object-fit: cover;
+}
+
+.btns__PopupEditor2 {
+    position: relative;
+    display: flex;
+    height: 11%;
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    border: 3px dashed;
+    border-left: 0;
+    border-right: 0;
+}
+
+.btns__PopupEditor2 button {
+  display: flex;
+  height: 100%;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btns__PopupEditor2 svg{
+  height: 80%;
+}
+
+#closePopupEditor2 {
+  display: none;
+}
+
+.name_container {
+    margin: 0 0 20px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+#fild_title3 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 0px 0 10px;
+  width: 100%;
+}
+
+.above_upload3 {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  margin: 10px 10px 0px;
+}
+
+#previewResult3 {
+  height: 100%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  border-radius: 50%;
+}
+
+.btns_above_upload3 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btns_above_upload3 button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35%;
+  margin-left: 16px;
+  cursor: pointer;
+  border: 1px dashed #ccc;
+  border-radius: 10%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  background: white;
+  transition: transform .5s ease;
+}
+
+.btns_above_upload3 button:hover {
+  transform: scale(1.02);
+}
+
+.btns_above_upload3 svg {
+  height: 100%;
+}
+
+.popup__background3 {
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: #000000cf;
+}
+
+#Popup__editor3 {
+    position: fixed;
+    display: flex;
+    background: white;
+    border: 1px solid black;
+    margin: auto;
+    z-index: 3;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    flex-direction: column;
+}
+
+.editorContainer3 {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+}
+
+#editor3 {
+    height: 50%;
+    aspect-ratio: 1/1;
+}
+
+#editor3 img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.img_list3 {
+    position: relative;
+    display: flex;
+    height: 50%;
+    aspect-ratio: 1/1;
+    background: black;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#list_p3 {
+    color: white;
+    font-family: sans-serif;
+    font-size: 3vh;
+    margin: 10% auto 10% 4%;
+}
+
+#preview3 {
+    height: 60%;
+    border: none;
+    background: none;
+    border-radius: 50%;
+}
+
+#preview3 canvas {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  border-radius: 50%;
+}
+
+.btns__PopupEditor3 {
+    position: relative;
+    display: flex;
+    height: 11%;
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    border: 3px dashed;
+    border-left: 0;
+    border-right: 0;
+}
+
+.btns__PopupEditor3 button {
+  display: flex;
+  height: 100%;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btns__PopupEditor3 svg{
+  height: 80%;
+}
+
+#closePopupEditor3 {
+  display: none;
+}
+
+#fild_title4 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  width: 100%;
+}
+
+.above_upload4 {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  margin: 10px 10px 0px;
+}
+
+#previewResult4 {
+  height: 100%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  border-radius: 50%;
+}
+
+.btns_above_upload4 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btns_above_upload4 button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35%;
+  margin-left: 16px;
+  cursor: pointer;
+  border: 1px dashed #ccc;
+  border-radius: 10%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  background: white;
+  transition: transform .5s ease;
+}
+
+.btns_above_upload4 button:hover {
+  transform: scale(1.02);
+}
+
+.btns_above_upload4 svg {
+  height: 100%;
+}
+
+.popup__background4 {
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: #000000cf;
+}
+
+#Popup__editor4 {
+    position: fixed;
+    display: flex;
+    background: white;
+    border: 1px solid black;
+    margin: auto;
+    z-index: 3;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    flex-direction: column;
+}
+
+.editorContainer4 {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+}
+
+#editor4 {
+    height: 50%;
+    aspect-ratio: 1/1;
+}
+
+#editor4 img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.img_list4 {
+    position: relative;
+    display: flex;
+    height: 50%;
+    aspect-ratio: 1/1;
+    background: black;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#list_p4 {
+    color: white;
+    font-family: sans-serif;
+    font-size: 3vh;
+    margin: 10% auto 10% 4%;
+}
+
+#preview4 {
+    height: 60%;
+    border: none;
+    background: none;
+    border-radius: 50%;
+}
+
+#preview4 canvas {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  border-radius: 50%;
+}
+
+.btns__PopupEditor4 {
+    position: relative;
+    display: flex;
+    height: 11%;
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    border: 3px dashed;
+    border-left: 0;
+    border-right: 0;
+}
+
+.btns__PopupEditor4 button {
+  display: flex;
+  height: 100%;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btns__PopupEditor4 svg{
+  height: 80%;
+}
+
+#closePopupEditor4 {
+  display: none;
+}
+
+#fild_title5 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  width: 100%;
+}
+
+.above_upload5 {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  margin: 10px 10px 0px;
+}
+
+#previewResult5 {
+  height: 100%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  border-radius: 50%;
+}
+
+.btns_above_upload5 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btns_above_upload5 button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35%;
+  margin-left: 16px;
+  cursor: pointer;
+  border: 1px dashed #ccc;
+  border-radius: 10%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  background: white;
+  transition: transform .5s ease;
+}
+
+.btns_above_upload5 button:hover {
+  transform: scale(1.02);
+}
+
+.btns_above_upload5 svg {
+  height: 100%;
+}
+
+.popup__background5 {
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: #000000cf;
+}
+
+#Popup__editor5 {
+    position: fixed;
+    display: flex;
+    background: white;
+    border: 1px solid black;
+    margin: auto;
+    z-index: 3;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    flex-direction: column;
+}
+
+.editorContainer5 {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+}
+
+#editor5 {
+    height: 50%;
+    aspect-ratio: 1/1;
+}
+
+#editor5 img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.img_list5 {
+    position: relative;
+    display: flex;
+    height: 50%;
+    aspect-ratio: 1/1;
+    background: black;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#list_p5 {
+    color: white;
+    font-family: sans-serif;
+    font-size: 3vh;
+    margin: 10% auto 10% 4%;
+}
+
+#preview5 {
+    height: 60%;
+    border: none;
+    background: none;
+    border-radius: 50%;
+}
+
+#preview5 canvas {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  border-radius: 50%;
+}
+
+.btns__PopupEditor5 {
+    position: relative;
+    display: flex;
+    height: 11%;
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    border: 3px dashed;
+    border-left: 0;
+    border-right: 0;
+}
+
+.btns__PopupEditor5 button {
+  display: flex;
+  height: 100%;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btns__PopupEditor5 svg{
+  height: 80%;
+}
+
+#closePopupEditor5 {
+  display: none;
+}
+
+#fild_title6 {
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 20px 0 10px;
+  width: 100%;
+}
+
+.above_upload6 {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  height: 100px;
+  margin: 10px 10px 0px;
+}
+
+#previewResult6 {
+  height: 100%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  border-radius: 50%;
+}
+
+.btns_above_upload6 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btns_above_upload6 button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 35%;
+  margin-left: 16px;
+  cursor: pointer;
+  border: 1px dashed #ccc;
+  border-radius: 10%;
+  box-shadow: -2px 3px 7px rgb(0 0 0 / 0.5);
+  background: white;
+  transition: transform .5s ease;
+}
+
+.btns_above_upload6 button:hover {
+  transform: scale(1.02);
+}
+
+.btns_above_upload6 svg {
+  height: 100%;
+}
+
+.popup__background6 {
+  position: fixed;
+  display: none;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: #000000cf;
+}
+
+#Popup__editor6 {
+    position: fixed;
+    display: flex;
+    background: white;
+    border: 1px solid black;
+    margin: auto;
+    z-index: 3;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    flex-direction: column;
+}
+
+.editorContainer6 {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    align-items: center;
+}
+
+#editor6 {
+    height: 50%;
+    aspect-ratio: 1/1;
+}
+
+#editor6 img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.img_list6 {
+    position: relative;
+    display: flex;
+    height: 50%;
+    aspect-ratio: 1/1;
+    background: black;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#list_p6 {
+    color: white;
+    font-family: sans-serif;
+    font-size: 3vh;
+    margin: 10% auto 10% 4%;
+}
+
+#preview6 {
+    height: 60%;
+    border: none;
+    background: none;
+    border-radius: 50%;
+}
+
+#preview6 canvas {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  border-radius: 50%;
+}
+
+.btns__PopupEditor6 {
+    position: relative;
+    display: flex;
+    height: 11%;
+    width: 100%;
+    margin: 0;
+    flex-direction: row;
+    justify-content: center;
+    border: 3px dashed;
+    border-left: 0;
+    border-right: 0;
+}
+
+.btns__PopupEditor6 button {
+  display: flex;
+  height: 100%;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btns__PopupEditor6 svg{
+  height: 80%;
+}
+
+#closePopupEditor6 {
+  display: none;
+}
+
+</style>
+
+</html>
