@@ -1522,7 +1522,7 @@ input[type=text] {
     margin: 0;
 }
 
-.list {
+.list_preview {
     position: absolute;
     display: flex;
     flex-wrap: nowrap;
@@ -1534,28 +1534,28 @@ input[type=text] {
     overflow-x: scroll;
 }
 
-.list::-webkit-scrollbar {
+.list_preview::-webkit-scrollbar {
     background-color: #494F56;
     border-radius: 6px;
     height: 12px;
     width: 12px;
 }
 
-.list::-webkit-scrollbar-thumb {
+.list_preview::-webkit-scrollbar-thumb {
     background-color: red;
     border-radius: 6px;
 }
 
-.list::-webkit-scrollbar-thumb:hover {
+.list_preview::-webkit-scrollbar-thumb:hover {
     background-color: darkred;
 }
 
 @media screen and (max-width: 768px) {
-    .list::-webkit-scrollbar, .list::-webkit-scrollbar-thumb, .list::-webkit-scrollbar-thumb:hover {
+    .list_preview::-webkit-scrollbar, .list_preview::-webkit-scrollbar-thumb, .list_preview::-webkit-scrollbar-thumb:hover {
         display: none;
 }   }
 
-.list::-webkit-scrollbar-button {
+.list_preview::-webkit-scrollbar-button {
     display: none;
 }
 
